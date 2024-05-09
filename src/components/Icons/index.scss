@@ -1,0 +1,18 @@
+.sidebar {
+	li {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 15%;
+
+		a {
+			width: 54%;
+			aspect-ratio: 1/1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #fff;
+			border-radius: 7px;
+		}
+	}
+}
