@@ -2,7 +2,7 @@ import './index.scss';
 
 import Logo from '../../assets/images/logo.svg';
 
-import Link from '../Link/index.jsx';
+import Link from '../Links/index.jsx';
 
 export default function Header() {
 	return (
