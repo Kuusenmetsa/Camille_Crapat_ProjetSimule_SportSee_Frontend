@@ -6,16 +6,16 @@ export async function getUser(id) {
 }
 
 export async function getActivity(id) {
-	const activity = USER_ACTIVITY.filter((el) => parseInt(el.id) === parseInt(id));
+	const activity = USER_ACTIVITY.filter((el) => parseInt(el.userId) === parseInt(id));
 	return activity.length >= 1 ? activity[0] : {};
 }
 
 export async function getAverageSessions(id) {
-	const average = USER_AVERAGE_SESSIONS.filter((el) => parseInt(el.id) === parseInt(id));
+	const average = USER_AVERAGE_SESSIONS.filter((el) => parseInt(el.userId) === parseInt(id));
 	return average.length >= 1 ? average[0] : {};
 }
 
 export async function getPerformance(id) {
-	const performance = USER_PERFORMANCE.filter((el) => parseInt(el.id) === parseInt(id));
+	const performance = USER_PERFORMANCE.filter((el) => parseInt(el.userId) === parseInt(id));
 	return performance.length >= 1 ? performance[0] : {};
 }
