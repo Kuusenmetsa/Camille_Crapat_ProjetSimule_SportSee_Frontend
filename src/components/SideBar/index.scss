@@ -1,7 +1,10 @@
 .sidebar {
+	position: fixed;
+	top: 91px;
+	bottom: 0;
+	left: 0;
 	display: flex;
-	width: 8.12vw;
-	height: 91.12vh;
+	width: 117px;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;

@@ -1,11 +1,30 @@
 .home {
-	width: 91.88vw;
+	position: absolute;
+	top: 91px;
+	left: 117px;
+	width: 1323px;
 	padding: 6vh 6.8vw;
+
 	&__title {
 		font-size: 48px;
 		font-weight: 500;
 		&--name {
 			color: red;
+		}
+	}
+	&__dashboard {
+		display: flex;
+		justify-content: space-between;
+		&__graphics {
+			display: flex;
+		}
+		&__informations {
+			width: 258px;
+			height: 616px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
 		}
 	}
 }
