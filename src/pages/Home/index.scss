@@ -1,0 +1,11 @@
+.home {
+	width: 91.88vw;
+	padding: 6vh 6.8vw;
+	&__title {
+		font-size: 48px;
+		font-weight: 500;
+		&--name {
+			color: red;
+		}
+	}
+}
