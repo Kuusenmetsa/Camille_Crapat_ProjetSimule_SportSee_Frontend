@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 91px;
 	left: 117px;
-	width: 1323px;
+	right: 0;
 	padding: 6vh 6.8vw;
 
 	&__title {
@@ -15,8 +15,16 @@
 	&__dashboard {
 		display: flex;
 		justify-content: space-between;
-		&__graphics {
+
+		&__charts {
 			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			&--bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 		}
 		&__informations {
 			width: 258px;

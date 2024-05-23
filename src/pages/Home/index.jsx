@@ -1,6 +1,10 @@
 import './index.scss';
 
 import Information from '../../components/Information';
+import ChartBar from '../../components/ChartBar';
+import ChartLine from '../../components/ChartLine';
+import ChartRadar from '../../components/ChartRadar';
+import ChartStats from '../../components/ChartStats';
 
 import KcalIcon from '../../assets/icônes/calories-icon.svg';
 import ProteinIcon from '../../assets/icônes/protein-icon.svg';
@@ -17,7 +21,14 @@ export default function Home() {
 				<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 			</div>
 			<div className='home__dashboard'>
-				<div className='home__dashboard__graphics'></div>
+				<div className='home__dashboard__charts'>
+					<ChartBar />
+					<div className='home__dashboard__charts--bottom'>
+						<ChartLine />
+						<ChartRadar />
+						<ChartStats />
+					</div>
+				</div>
 				<div className='home__dashboard__informations'>
 					<Information img={KcalIcon} poids='155' unit='kCal' type='Calories' key='Calories' />
 					<Information img={ProteinIcon} poids='155' unit='g' type='Proteines' key='Proteines' />
