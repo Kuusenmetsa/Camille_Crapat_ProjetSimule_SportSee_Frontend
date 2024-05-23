@@ -1,0 +1,14 @@
+.error {
+	width: 91.88vw;
+	color: red;
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&__title {
+		font-size: 124px;
+	}
+	&__text {
+		font-size: 24px;
+	}
+}
