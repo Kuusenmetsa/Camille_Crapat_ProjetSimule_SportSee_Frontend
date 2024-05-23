@@ -1,17 +1,21 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../data/data';
 
-export function getUser(id) {
-	return USER_MAIN_DATA.filter((el) => parseInt(el.id) === parseInt(id));
+export async function getUser(id) {
+	const user = USER_MAIN_DATA.filter((el) => parseInt(el.id) === parseInt(id));
+	return user.length >= 1 ? user[0] : {};
 }
 
-export function getActivity(id) {
-	return USER_ACTIVITY.filter((el) => parseInt(el.id) === parseInt(id));
+export async function getActivity(id) {
+	const activity = USER_ACTIVITY.filter((el) => parseInt(el.id) === parseInt(id));
+	return activity.length >= 1 ? activity[0] : {};
 }
 
-export function getAverageSessions(id) {
-	return USER_AVERAGE_SESSIONS.filter((el) => parseInt(el.id) === parseInt(id));
+export async function getAverageSessions(id) {
+	const average = USER_AVERAGE_SESSIONS.filter((el) => parseInt(el.id) === parseInt(id));
+	return average.length >= 1 ? average[0] : {};
 }
 
-export function getPerformance(id) {
-	return USER_PERFORMANCE.filter((el) => parseInt(el.id) === parseInt(id));
+export async function getPerformance(id) {
+	const performance = USER_PERFORMANCE.filter((el) => parseInt(el.id) === parseInt(id));
+	return performance.length >= 1 ? performance[0] : {};
 }
