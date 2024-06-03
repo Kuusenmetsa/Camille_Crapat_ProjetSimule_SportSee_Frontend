@@ -1,5 +1,28 @@
 .chartBar {
-	width: 835px;
-	height: 320px;
+	position: relative;
+	width: 100%;
+	height: auto;
 	background-color: #fbfbfb;
+	&__title {
+		position: absolute;
+		top: 25px;
+		left: 40px;
+		font-size: 15px;
+		font-weight: 500;
+	}
+}
+.toolpit {
+	min-width: 39px;
+	min-height: 63px;
+	padding: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #e60000;
+	&__text {
+		color: #fff;
+		font-size: 7px;
+		font-weight: 500;
+	}
 }

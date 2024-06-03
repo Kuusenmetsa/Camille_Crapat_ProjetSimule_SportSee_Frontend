@@ -95,15 +95,15 @@ export default function Home() {
 
 	return (
 		<main className='home'>
-			<div>
-				<h2 className='home__title'>
-					Bonjour, {userIsLoading && <span className='home__title--name'>{user.userInfos.firstName}</span>}
+			<div className='home__header'>
+				<h2 className='home__header--title'>
+					Bonjour, {userIsLoading && <span className='home__header--title--name'>{user.userInfos.firstName}</span>}
 				</h2>
-				<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+				<p className='home__header--text'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 			</div>
 			<div className='home__dashboard'>
 				<div className='home__dashboard__charts'>
-					{activityIsLoading && <ChartBar />}
+					{activityIsLoading && <ChartBar data={activity} />}
 					<div className='home__dashboard__charts--bottom'>
 						{averageIsLoading && <ChartLine />}
 						{performanceIsLoading && <ChartRadar />}
