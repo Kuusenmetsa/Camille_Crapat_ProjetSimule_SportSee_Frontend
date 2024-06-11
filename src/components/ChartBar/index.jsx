@@ -19,7 +19,7 @@ export default function ChartBar({ data }) {
 		<div className='chartBar'>
 			<span className='chartBar__title'>Activité quotidienne</span>
 			<ResponsiveContainer width='100%' aspect={2.5}>
-				<BarChart width={500} height={300} data={data.sessions} margin={{ top: 25, right: 30, bottom: 25, left: 40 }}>
+				<BarChart data={data.sessions} margin={{ top: 25, right: 30, bottom: 25, left: 40 }}>
 					<CartesianGrid strokeDasharray='3 3' vertical={false} />
 					<XAxis
 						dataKey='day'
