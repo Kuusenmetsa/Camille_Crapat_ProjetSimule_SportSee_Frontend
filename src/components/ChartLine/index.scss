@@ -1,5 +1,28 @@
 .chartLine {
-	width: 258px;
-	height: 263px;
+	position: relative;
+	width: 30%;
+	aspect-ratio: 1/1;
 	background-color: #ff0000;
+	&__title {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		max-width: 65%;
+		font-size: 15px;
+		font-weight: 500;
+		opacity: 0.6;
+		color: #fff;
+	}
+	&__toolpit {
+		min-width: 39px;
+		min-height: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+		&__text {
+			font-size: 7px;
+			font-weight: 500;
+		}
+	}
 }
