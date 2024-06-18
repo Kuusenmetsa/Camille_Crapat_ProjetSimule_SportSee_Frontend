@@ -1,7 +1,6 @@
-import { ResponsiveContainer, RadialBarChart, RadialBar, Cell, Label } from 'recharts';
+import { ResponsiveContainer, RadialBarChart, RadialBar, Cell } from 'recharts';
 
 import './index.scss';
-import { useEffect } from 'react';
 
 export default function ChartStats({ data }) {
 	const score = [
