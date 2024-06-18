@@ -5,10 +5,10 @@
 	background-color: #ff0000;
 	&__title {
 		position: absolute;
-		top: 15px;
-		left: 15px;
+		top: 1.04vw;
+		left: 1.04vw;
 		max-width: 65%;
-		font-size: 15px;
+		font-size: 1.04vw;
 		font-weight: 500;
 		opacity: 0.6;
 		color: #fff;
@@ -21,7 +21,7 @@
 		align-items: center;
 		background-color: #fff;
 		&__text {
-			font-size: 7px;
+			font-size: 0.48vw;
 			font-weight: 500;
 		}
 	}

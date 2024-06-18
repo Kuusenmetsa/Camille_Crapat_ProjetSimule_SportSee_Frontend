@@ -11,7 +11,7 @@ export default function ChartRadar({ data }) {
 			<ResponsiveContainer width='100%' aspect={1}>
 				<RadarChart data={dataFormat} outerRadius='65%'>
 					<PolarGrid radialLines={false} />
-					<PolarAngleAxis style={{ fontSize: '12px' }} stroke='#FFFFFF' tickLine={false} dataKey='kind' />
+					<PolarAngleAxis style={{ fontSize: '0.7vw' }} stroke='#FFFFFF' tickLine={false} dataKey='kind' />
 					<Radar dataKey='value' stroke='#FF0101B2' fill='#FF0101B2' fillOpacity={0.7} />
 				</RadarChart>
 			</ResponsiveContainer>

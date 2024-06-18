@@ -17,9 +17,14 @@ export default function ChartBar({ data }) {
 
 	return (
 		<div className='chartBar'>
-			<span className='chartBar__title'>Activité quotidienne</span>
 			<ResponsiveContainer width='100%' aspect={2.5}>
-				<BarChart data={data.sessions} margin={{ top: 25, right: 30, bottom: 25, left: 40 }}>
+				<span className='chartBar__title'>Activité quotidienne</span>
+				<BarChart
+					data={data.sessions}
+					style={{ fontSize: '1.04vw' }}
+					width='100%'
+					margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+				>
 					<CartesianGrid strokeDasharray='3 3' vertical={false} />
 					<XAxis
 						dataKey='day'
@@ -39,7 +44,7 @@ export default function ChartBar({ data }) {
 						domain={[60, 'dataMax + 5']}
 					/>
 					<YAxis dataKey='calories' yAxisId='right' orientation='right' axisLine={false} tickLine={false} />
-					<Legend align='right' verticalAlign='top' iconSize={8} height={60} />
+					<Legend className='chartBar__legend' align='right' verticalAlign='top' height='30%' iconSize={8} />
 					<Tooltip content={<CustomToolpit />} offset={55} />
 					<Bar
 						dataKey='kilogram'

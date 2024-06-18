@@ -42,7 +42,7 @@ export default function ChartLine({ data }) {
 							return dayOfWeek[day];
 						}}
 						stroke='#fff'
-						style={{ opacity: 0.5 }}
+						style={{ opacity: 0.5, fontSize: '0.83vw' }}
 					/>
 					<YAxis
 						dataKey='sessionLength'
