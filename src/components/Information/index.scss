@@ -1,6 +1,6 @@
 .information {
 	width: 100%;
-	height: 124px;
+	height: 20%;
 	background-color: #fbfbfb;
 	display: flex;
 	align-items: center;
@@ -12,15 +12,15 @@
 		height: 100%;
 	}
 	&__text {
-		line-height: 24px;
+		line-height: 2.34vh;
 		&--weight {
 			font-weight: 700;
-			font-size: 20px;
+			font-size: 1.38vw;
 			color: #282d30;
 		}
 		&--type {
 			font-weight: 500;
-			font-size: 14px;
+			font-size: 0.97vw;
 			color: #74798c;
 		}
 	}
