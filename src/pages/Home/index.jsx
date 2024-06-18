@@ -105,9 +105,9 @@ export default function Home() {
 				<div className='home__dashboard__charts'>
 					{activityIsLoading && <ChartBar data={activity} />}
 					<div className='home__dashboard__charts--bottom'>
-						{averageIsLoading && <ChartLine />}
-						{performanceIsLoading && <ChartRadar />}
-						{userIsLoading && <ChartStats />}
+						{averageIsLoading && <ChartLine data={average} />}
+						{performanceIsLoading && <ChartRadar data={performance} />}
+						{userIsLoading && <ChartStats data={user} />}
 					</div>
 				</div>
 				{userIsLoading && (
