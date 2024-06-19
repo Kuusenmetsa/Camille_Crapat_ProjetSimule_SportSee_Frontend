@@ -117,7 +117,7 @@ export default function User() {
 							img={ProteinIcon}
 							poids={user.keyData.proteinCount}
 							unit='g'
-							type='Proteines'
+							type='Protéines'
 							key='Proteines'
 						/>
 						<Information
