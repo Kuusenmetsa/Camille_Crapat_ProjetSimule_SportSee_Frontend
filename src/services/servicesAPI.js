@@ -1,7 +1,23 @@
-export function getUser(id) {}
+export async function getUser(id) {
+	const response = await fetch(`http://localhost:3000/user/${id}`);
+	const user = await response.json();
+	return user.data ? user.data : {};
+}
 
-export function getActivity(id) {}
+export async function getActivity(id) {
+	const response = await fetch(`http://localhost:3000/user/${id}/activity`);
+	const activity = await response.json();
+	return activity.data ? activity.data : {};
+}
 
-export function getAverageSessions(id) {}
+export async function getAverageSessions(id) {
+	const response = await fetch(`http://localhost:3000/user/${id}/average-sessions`);
+	const average = await response.json();
+	return average.data ? average.data : {};
+}
 
-export function getPerformance(id) {}
+export async function getPerformance(id) {
+	const response = await fetch(`http://localhost:3000/user/${id}/performance`);
+	const performance = await response.json();
+	return performance.data ? performance.data : {};
+}
