@@ -27,110 +27,147 @@ export default function User() {
 	const [activityIsLoading, setActivityIsLoading] = useState(false);
 	const [averageIsLoading, setAverageIsLoading] = useState(false);
 	const [performanceIsLoading, setPerformanceIsLoading] = useState(false);
+	const [activityError, setActivityError] = useState(null);
+	const [averageError, setAverageError] = useState(null);
+	const [performanceError, setPerformanceError] = useState(null);
 
 	useEffect(() => {
-		if (!id) {
+		const regexId = /^[0-9]{1,}$/;
+		if (!id || !regexId.test(id)) {
 			navigate('/error');
-		}
-	}, [id, navigate]);
-
-	useEffect(() => {
-		getUser(id)
-			.then(function (res) {
-				if (res && res.id) {
-					setUser(res);
-					setUserIsLoading(true);
-				} else {
+		} else {
+			getUser(id)
+				.then(function (res) {
+					if (res && res.id) {
+						setUser(res);
+						setUserIsLoading(true);
+					} else {
+						navigate('/error');
+					}
+				})
+				.catch(function () {
 					navigate('/error');
-				}
-			})
-			.catch(function () {
-				navigate('/error');
-			});
+				});
+		}
 	}, [id, user, navigate]);
 
 	useEffect(() => {
-		getActivity(id)
-			.then(function (res) {
-				if (res && res.userId) {
-					setActivity(res);
+		const regexId = /^[0-9]{1,}$/;
+		if (!id || !regexId.test(id)) {
+			navigate('/error');
+		} else {
+			getActivity(id)
+				.then(function (res) {
 					setActivityIsLoading(true);
-				} else {
-					navigate('/error');
-				}
-			})
-			.catch(function () {
-				navigate('/error');
-			});
+					if (res && res.userId) {
+						setActivity(res);
+					} else {
+						setActivityError('Une erreur est survenu lors du chargement des données liées à votre activité !');
+					}
+				})
+				.catch(function () {
+					setActivityError('Une erreur est survenu lors du chargement des données liées à votre activité !');
+				});
+		}
 	}, [id, activity, navigate]);
 
 	useEffect(() => {
-		getAverageSessions(id)
-			.then(function (res) {
-				if (res && res.userId) {
-					setAverage(res);
+		const regexId = /^[0-9]{1,}$/;
+		if (!id || !regexId.test(id)) {
+			navigate('/error');
+		} else {
+			getAverageSessions(id)
+				.then(function (res) {
 					setAverageIsLoading(true);
-				} else {
-					navigate('/error');
-				}
-			})
-			.catch(function () {
-				navigate('/error');
-			});
+					if (res && res.userId) {
+						setAverage(res);
+					} else {
+						setAverageError('Une erreur est survenu dans le chargement de vos données liées à vos sessions !');
+					}
+				})
+				.catch(function () {
+					setAverageError('Une erreur est survenu dans le chargement de vos données liées à vos sessions !');
+				});
+		}
 	}, [id, average, navigate]);
 	useEffect(() => {
-		getPerformance(id)
-			.then(function (res) {
-				if (res && res.userId) {
-					setPerformance(res);
+		const regexId = /^[0-9]{1,}$/;
+		if (!id || !regexId.test(id)) {
+			navigate('/error');
+		} else {
+			getPerformance(id)
+				.then(function (res) {
 					setPerformanceIsLoading(true);
-				} else {
-					navigate('/error');
-				}
-			})
-			.catch(function () {
-				navigate('/error');
-			});
+					if (res && res.userId) {
+						setPerformance(res);
+					} else {
+						setPerformanceError(
+							'Une erreur est survenu lors de la récupération des données liées à vos performances !'
+						);
+					}
+				})
+				.catch(function () {
+					setPerformanceError('Une erreur est survenu lors de la récupération des données liées à vos performances !');
+				});
+		}
 	}, [id, performance, navigate]);
 
 	return (
-		<main className='home'>
-			<div className='home__header'>
-				<h2 className='home__header--title'>
-					Bonjour, {userIsLoading && <span className='home__header--title--name'>{user.userInfos.firstName}</span>}
-				</h2>
-				<p className='home__header--text'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-			</div>
-			<div className='home__dashboard'>
-				<div className='home__dashboard__charts'>
-					{activityIsLoading && <ChartBar data={activity} />}
-					<div className='home__dashboard__charts--bottom'>
-						{averageIsLoading && <ChartLine data={average} />}
-						{performanceIsLoading && <ChartRadar data={performance} />}
-						{userIsLoading && <ChartStats data={user} />}
+		<>
+			{userIsLoading ? (
+				<main className='home'>
+					<div className='home__header'>
+						<h2 className='home__header--title'>
+							Bonjour, {userIsLoading && <span className='home__header--title--name'>{user.userInfos.firstName}</span>}
+						</h2>
+						<p className='home__header--text'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 					</div>
-				</div>
-				{userIsLoading && (
-					<div className='home__dashboard__informations'>
-						<Information img={KcalIcon} poids={user.keyData.calorieCount} unit='kCal' type='Calories' key='Calories' />
-						<Information
-							img={ProteinIcon}
-							poids={user.keyData.proteinCount}
-							unit='g'
-							type='Protéines'
-							key='Proteines'
-						/>
-						<Information
-							img={GlucidIcon}
-							poids={user.keyData.carbohydrateCount}
-							unit='g'
-							type='Glucides'
-							key='Glucides'
-						/>
-						<Information img={LipidIcon} poids={user.keyData.lipidCount} unit='g' type='Lipides' key='Lipides' />
+					<div className='home__dashboard'>
+						<div className='home__dashboard__charts'>
+							{activityIsLoading && !activityError ? <ChartBar data={activity} /> : <p>{activityError}</p>}
+							<div className='home__dashboard__charts--bottom'>
+								{averageIsLoading && !averageError ? <ChartLine data={average} /> : <p>{averageError}</p>}
+								{performanceIsLoading && !performanceError ? (
+									<ChartRadar data={performance} />
+								) : (
+									<p>{performanceError}</p>
+								)}
+								{userIsLoading && <ChartStats data={user} />}
+							</div>
+						</div>
+						{userIsLoading && (
+							<div className='home__dashboard__informations'>
+								<Information
+									img={KcalIcon}
+									poids={user.keyData.calorieCount}
+									unit='kCal'
+									type='Calories'
+									key='Calories'
+								/>
+								<Information
+									img={ProteinIcon}
+									poids={user.keyData.proteinCount}
+									unit='g'
+									type='Protéines'
+									key='Proteines'
+								/>
+								<Information
+									img={GlucidIcon}
+									poids={user.keyData.carbohydrateCount}
+									unit='g'
+									type='Glucides'
+									key='Glucides'
+								/>
+								<Information img={LipidIcon} poids={user.keyData.lipidCount} unit='g' type='Lipides' key='Lipides' />
+							</div>
+						)}
 					</div>
-				)}
-			</div>
-		</main>
+				</main>
+			) : (
+				<main className='home'>
+					<p>Une erreur est survenu lors du chargement des données utilisateurs</p>
+				</main>
+			)}
+		</>
 	);
 }
