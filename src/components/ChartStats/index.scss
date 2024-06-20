@@ -3,6 +3,8 @@
 	width: 30%;
 	aspect-ratio: 1/1;
 	background-color: #fbfbfb;
+	overflow: hidden;
+	border-radius: 10px;
 	&__obj {
 		position: absolute;
 		width: 55%;

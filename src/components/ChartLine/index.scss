@@ -3,6 +3,8 @@
 	width: 30%;
 	aspect-ratio: 1/1;
 	background-color: #ff0000;
+	overflow: hidden;
+	border-radius: 10px;
 	&__title {
 		position: absolute;
 		top: 1.04vw;
