@@ -2,10 +2,10 @@ import './index.scss';
 
 import Icons from '../Icons';
 
-import Bike from '../../assets/icônes/bike.svg';
-import Musculation from '../../assets/icônes/musculation.svg';
-import Natation from '../../assets/icônes/natation.svg';
-import Yoga from '../../assets/icônes/yoga.svg';
+import Bike from '../../assets/icones/bike.svg';
+import Musculation from '../../assets/icones/musculation.svg';
+import Natation from '../../assets/icones/natation.svg';
+import Yoga from '../../assets/icones/yoga.svg';
 
 export default function SideBar() {
 	return (
