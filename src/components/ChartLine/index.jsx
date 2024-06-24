@@ -18,7 +18,7 @@ export default function ChartLine({ data }) {
 		<div className='chartLine'>
 			<span className='chartLine__title'>Durée moyenne des sessions</span>
 			<ResponsiveContainer width='100%' aspect={1}>
-				<LineChart data={data.sessions} margin={{ top: 15, right: 15, bottom: 15, left: 15 }}>
+				<LineChart data={data.averages} margin={{ top: 15, right: 15, bottom: 15, left: 15 }}>
 					<defs>
 						<linearGradient id='gradient'>
 							<stop offset='0%' stopColor='#fff' stopOpacity={0.4} />

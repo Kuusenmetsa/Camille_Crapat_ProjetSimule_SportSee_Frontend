@@ -9,12 +9,12 @@ import ChartLine from '../../components/ChartLine';
 import ChartRadar from '../../components/ChartRadar';
 import ChartStats from '../../components/ChartStats';
 
-import KcalIcon from '../../assets/icônes/calories-icon.svg';
-import ProteinIcon from '../../assets/icônes/protein-icon.svg';
-import GlucidIcon from '../../assets/icônes/carbs-icon.svg';
-import LipidIcon from '../../assets/icônes/fat-icon.svg';
+import KcalIcon from '../../assets/icones/calories-icon.svg';
+import ProteinIcon from '../../assets/icones/protein-icon.svg';
+import GlucidIcon from '../../assets/icones/carbs-icon.svg';
+import LipidIcon from '../../assets/icones/fat-icon.svg';
 
-import { getUser, getActivity, getAverageSessions, getPerformance } from '../../services/servicesMocké';
+import { getUser, getActivity, getAverageSessions, getPerformance } from '../../services/servicesMocke';
 
 export default function User() {
 	const id = useParams().id;
@@ -118,7 +118,7 @@ export default function User() {
 				<main className='home'>
 					<div className='home__header'>
 						<h2 className='home__header--title'>
-							Bonjour, {userIsLoading && <span className='home__header--title--name'>{user.userInfos.firstName}</span>}
+							Bonjour, {userIsLoading && <span className='home__header--title--name'>{user.firstName}</span>}
 						</h2>
 						<p className='home__header--text'>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 					</div>
@@ -139,26 +139,32 @@ export default function User() {
 							<div className='home__dashboard__informations'>
 								<Information
 									img={KcalIcon}
-									poids={user.keyData.calorieCount}
+									poids={user.nutritionalValues.calorieCount}
 									unit='kCal'
 									type='Calories'
 									key='Calories'
 								/>
 								<Information
 									img={ProteinIcon}
-									poids={user.keyData.proteinCount}
+									poids={user.nutritionalValues.proteinCount}
 									unit='g'
 									type='Protéines'
 									key='Proteines'
 								/>
 								<Information
 									img={GlucidIcon}
-									poids={user.keyData.carbohydrateCount}
+									poids={user.nutritionalValues.carbohydrateCount}
 									unit='g'
 									type='Glucides'
 									key='Glucides'
 								/>
-								<Information img={LipidIcon} poids={user.keyData.lipidCount} unit='g' type='Lipides' key='Lipides' />
+								<Information
+									img={LipidIcon}
+									poids={user.nutritionalValues.lipidCount}
+									unit='g'
+									type='Lipides'
+									key='Lipides'
+								/>
 							</div>
 						)}
 					</div>
